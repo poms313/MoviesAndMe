@@ -1,2 +1,5 @@
 # my-movies
-a mobile app write with react native
+une application pour mobiles android et ios écrite avec react native
+fonctions:
+   - Connexion avec l'API movies db 
+   - recherche de films avec leurs nom

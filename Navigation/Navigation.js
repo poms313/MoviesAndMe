@@ -8,6 +8,19 @@ import { createStackNavigator} from 'react-navigation-stack';
 import Search from '../Components/Search'
 import FilmDetail from '../Components/FilmDetail'
 import Favorites from '../Components/Favorites'
+import News from '../Components/News'
+
+const NewsStackNavigator = createStackNavigator({
+  News: {
+    screen: News,
+    navigationOptions: {
+      title: 'Les Derniers Films',
+    },
+  },
+  FilmDetail: {
+    screen: FilmDetail,
+  }
+})
 
 const SearchStackNavigator = createStackNavigator({
   Search: {
@@ -35,6 +48,7 @@ const FavoritesStackNavigator = createStackNavigator({
 
 const MoviesTabNavigator = createBottomTabNavigator(
   {
+    
     Search: {
       screen: SearchStackNavigator,
       navigationOptions: {
@@ -54,8 +68,19 @@ const MoviesTabNavigator = createBottomTabNavigator(
             style={styles.icon}/>
         }
       }
+    },
+    News: {
+      screen: NewsStackNavigator,
+      navigationOptions: {
+        tabBarIcon: () => {
+          return <Image
+            source={require('../Images/ic_fiber_new.png')}
+            style={styles.icon}/>
+        }
+      }
     }
   },
+  
   {
     tabBarOptions: {
       activeBackgroundColor: '#DDDDDD',
